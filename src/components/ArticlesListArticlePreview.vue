@@ -22,6 +22,7 @@
         :aria-label="article.favorited ? 'Unfavorite article' : 'Favorite article'"
         class="btn btn-sm pull-xs-right"
         :class="[article.favorited ? 'btn-primary':'btn-outline-primary']"
+        data-test="fav-btn-1"
         :disabled="favoriteProcessGoing"
         @click="() =>favoriteArticle()"
       >
@@ -34,7 +35,9 @@
       :params="{slug: props.article.slug}"
       class="preview-link"
     >
-      <h1>{{ article.title }}</h1>
+      <h1
+      data-test="open-article">
+      {{ article.title }}</h1>
       <p>{{ article.description }}</p>
       <span>Read more...</span>
       <ul class="tag-list">

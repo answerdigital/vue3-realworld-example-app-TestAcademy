@@ -12,7 +12,7 @@
             </AppLink>
           </p>
 
-          <ul class="error-messages">
+          <ul data-test="error-message" class="error-messages">
             <li
               v-for="(error, field) in errors"
               :key="field"
@@ -34,6 +34,7 @@
                 v-model="form.email"
                 aria-label="Email"
                 class="form-control form-control-lg"
+                data-test="email-input"
                 type="email"
                 required
                 placeholder="Email"
@@ -44,6 +45,7 @@
                 v-model="form.password"
                 aria-label="Password"
                 class="form-control form-control-lg"
+                data-test="password-input"
                 type="password"
                 required
                 placeholder="Password"
@@ -51,6 +53,7 @@
             </fieldset>
             <button
               class="btn btn-lg btn-primary pull-xs-right"
+              data-test="signin-button"
               :disabled="!form.email || !form.password"
               type="submit"
             >

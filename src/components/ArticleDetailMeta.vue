@@ -34,12 +34,14 @@
       :aria-label="article.favorited ? 'Unfavorite article' : 'Favorite article'"
       class="btn btn-sm space"
       :class="[article.favorited ? 'btn-primary':'btn-outline-primary']"
+      data-test="favorite-button"
       :disabled="favoriteProcessGoing"
       @click="favoriteArticle"
     >
       <i class="ion-heart space" />
       {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article
-      <span class="counter">({{ article.favoritesCount }})</span>
+      <span class="counter"
+      data-test="like-counter">({{ article.favoritesCount }})</span>
     </button>
 
     <AppLink

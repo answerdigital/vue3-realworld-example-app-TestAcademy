@@ -26,6 +26,7 @@
               <AppLink
                 v-if="showEdit"
                 class="btn btn-sm btn-outline-secondary action-btn"
+                data-test="Profile-button"
                 name="settings"
                 aria-label="Edit profile settings"
               >
