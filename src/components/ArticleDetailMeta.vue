@@ -34,7 +34,7 @@
       :aria-label="article.favorited ? 'Unfavorite article' : 'Favorite article'"
       class="btn btn-sm space"
       :class="[article.favorited ? 'btn-primary':'btn-outline-primary']"
-      data-test="favorite-button"
+      data-test="article-favorite-button"
       :disabled="favoriteProcessGoing"
       @click="favoriteArticle"
     >

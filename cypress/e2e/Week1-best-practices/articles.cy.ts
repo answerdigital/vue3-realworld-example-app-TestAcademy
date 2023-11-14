@@ -60,9 +60,9 @@ describe("article actions", () => {
     //Arrange
 
     //Act
-    cy.getByTestId("fav-btn-1").eq(0).click();
+    cy.getByTestId("home-favorite-button").eq(0).click();
     
-    cy.getByTestId("fav-btn-1").eq(0).click() //like/unlike
+    cy.getByTestId("home-favorite-button").eq(0).click() //like/unlike
 
     cy.getByTestId("open-article").eq(0).click();
 
@@ -74,21 +74,21 @@ describe("article actions", () => {
     ); //would be different if the article at the top of the list changes
 
     //Act
-    cy.getByTestId("favorite-button").eq(0).contains("Favorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Favorite");
 
-    cy.getByTestId("favorite-button").eq(0).click();
+    cy.getByTestId("article-favorite-button").eq(0).click();
 
-    cy.getByTestId("favorite-button").eq(0).contains("Unfavorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Unfavorite");
     
-    cy.getByTestId("favorite-button").eq(0).click();
+    cy.getByTestId("article-favorite-button").eq(0).click();
 
-    cy.getByTestId("favorite-button").eq(0).contains("Favorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Favorite");
 
-    cy.getByTestId("favorite-button").eq(1);
+    cy.getByTestId("article-favorite-button").eq(1);
 
-    // cy.getByTestId("favorite-button").eq(1).contains("Favorite").click(); //bottom like button
+    // cy.getByTestId("article-favorite-button").eq(1).contains("Favorite").click(); //bottom like button
 
-    // cy.getByTestId("favorite-button").eq(1).contains("Unfavorite").click();
+    // cy.getByTestId("article-favorite-button").eq(1).contains("Unfavorite").click();
 
     //Assert
     //cy.url().should('equal',  Cypress.config().baseUrl +'/#/tag/welcome');
