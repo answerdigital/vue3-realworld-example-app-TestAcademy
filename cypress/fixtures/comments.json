@@ -1,0 +1,40 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "createdAt": "2023-11-09T12:00:00.000Z",
+      "updatedAt": "2023-11-09T12:00:00.000Z",
+      "body": "Everyone is saying some really interesing things here!",
+      "author": {
+        "username": "Ruaridh",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": "2023-11-08T12:00:00.000Z",
+      "updatedAt": "2023-11-08T12:00:00.000Z",
+      "body": "That was such an erudite observation, author",
+      "author": {
+        "username": "Ruaridh",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3,
+      "createdAt": "2023-11-07T14:00:00.000Z",
+      "updatedAt": "2023-11-07T14:00:00.000Z",
+      "body": "Waluigi is better than Wario - hands down",
+      "author": {
+        "username": "Ruaridh",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ]
+}

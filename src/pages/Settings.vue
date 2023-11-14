@@ -74,6 +74,7 @@
 
           <button
             class="btn btn-outline-danger"
+            data-test="logout-button"
             aria-label="Logout"
             @click="onLogout"
           >

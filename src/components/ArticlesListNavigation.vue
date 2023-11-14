@@ -8,6 +8,7 @@
       >
         <AppLink
           class="nav-link"
+          :data-test="link.routeName"
           active-class="active"
           :name="link.routeName"
           :params="link.routeParams"

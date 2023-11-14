@@ -1,0 +1,16 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "createdAt": "2023-11-09T12:00:00.000Z",
+      "updatedAt": "2023-11-09T12:00:00.000Z",
+      "body": "This is old news!",
+      "author": {
+        "username": "Gleb",
+        "bio": null,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Tortoise_closeup.jpg",
+        "following": false
+      }
+    }
+  ]
+}

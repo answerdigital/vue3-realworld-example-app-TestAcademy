@@ -16,6 +16,7 @@
         v-model="comment"
         aria-label="Write comment"
         class="form-control"
+        data-test="write-comment"
         placeholder="Write a comment..."
         :rows="3"
       />
@@ -31,6 +32,7 @@
         type="submit"
         :disabled="comment === ''"
         class="btn btn-sm btn-primary"
+        data-test="submit-comment"
       >
         Post Comment
       </button>
