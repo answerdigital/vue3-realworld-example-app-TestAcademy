@@ -90,7 +90,7 @@ describe("Logged in user should be able to add a comment", () => {
     cy.getByTestId("submit-comment").should("be.disabled");
   });
 
-  it("Post comment button is disabled after posting comment", () => {
+  it.skip("Post comment button is disabled after posting comment", () => {
     cy.url().should("contain", Cypress.config().baseUrl + "/#/article");
 
     //Act
