@@ -221,6 +221,30 @@ describe("Persistence of data", () => {
 
     cy.checkSelectedColourStyling("home-favorite-button");
   });
+  it("Selected like counter number persists between users", () => {
+    cy.getByTestId("home-favorite-button").eq(0).click();
+
+    cy.checkSelectedColourStyling("home-favorite-button");
+
+    cy.parseLikeCounterIntegerHome(0).then(($likeCountFirst) => {
+      const likeCountFirst: number = $likeCountFirst;
+
+      cy.logout()
+
+      cy.login("charles@charles.com","Password");
+
+      cy.checkDeselectedColourStyling("home-favorite-button");
+
+      cy.parseLikeCounterIntegerHome(0).should("equal", likeCountFirst);
+
+      cy.getByTestId("home-favorite-button").eq(0).click();
+
+      cy.checkSelectedColourStyling("home-favorite-button");
+
+      cy.parseLikeCounterIntegerHome(0).should("equal", likeCountFirst + 1);
+    });
+  });
+  
 });
 describe("Logged out actions", () => {
   it("Can't like article when logged out - home page", () => {
