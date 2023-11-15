@@ -43,6 +43,9 @@ devDependencies:
   cypress:
     specifier: ^13.4.0
     version: 13.4.0
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   eslint:
     specifier: ^8.48.0
     version: 8.48.0
