@@ -37,3 +37,7 @@ Cypress.Commands.add('mount', mount)
 
 // Example use:
 // cy.mount(MyComponent)
+
+Cypress.Commands.add("getByTestId", (selector, ...args) => {
+  return cy.get(`[data-test=${selector}]`, ...args);
+});
