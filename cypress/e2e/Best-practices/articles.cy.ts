@@ -11,7 +11,7 @@ const tags = [
   "#/tag/et",
   "#/tag/quia",
   "#/tag/deserunt",
-]; //In or out of describe?
+];
 
 describe("article feed", () => {
   beforeEach(() => {
@@ -86,12 +86,6 @@ describe("article actions", () => {
 
     cy.getByTestId("article-favorite-button").eq(1);
 
-    // cy.getByTestId("article-favorite-button").eq(1).contains("Favorite").click(); //bottom like button
-
-    // cy.getByTestId("article-favorite-button").eq(1).contains("Unfavorite").click();
-
-    //Assert
-    //cy.url().should('equal',  Cypress.config().baseUrl +'/#/tag/welcome');
   });
 
   it("Allows the user to follow & unfollow author", () => {
@@ -118,6 +112,3 @@ describe("article actions", () => {
   });
 });
 
-//Likes persist - This is broken
-//Add a comment
-//Delete a comment

@@ -39,7 +39,6 @@ describe("login", () => {
 
     cy.getByTestId("error-message").contains("email or password is invalid");
 
-    // cy.contains('email must contain @ sign').should('be.visible');
   });
 
   it("Prevents user from logging in with no credentials", () => {
@@ -76,11 +75,7 @@ describe("logout", () => {
     cy.getByTestId("profile").click(); //profile name button from Navbar
 
     //Act
-    //cy.url().should('equal', 'http://localhost:5173/#/profile/Ruaridh'); //is this valuable?
-
     cy.getByTestId("Profile-button").click();
-
-    //cy.url().should('equal', 'http://localhost:5173/#/settings');
 
     cy.getByTestId("logout-button").click();
 

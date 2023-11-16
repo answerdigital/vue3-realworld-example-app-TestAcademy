@@ -118,8 +118,8 @@ Cypress.Commands.add("backendComment", (fixture) => {
   cy.intercept("GET", "https://api.realworld.io/api/articles/**/comments", {
     // * is a wildcard here
     fixture: fixture,
-    times: 2,
   }).as("comments");
+
   cy.getByTestId("posted-comment-text").should("be.visible");
 });
 
@@ -158,18 +158,14 @@ Cypress.Commands.add("parseLikeCounterIntegerArticle", () => {
       const end = removeBrackets.indexOf(")", start);
       return removeBrackets.slice(start + 1, end);
     })
-    .should("be.a", "string")
-    .then(parseInt)
-    .should("be.a", "number");
+    .then(parseInt);
 });
 
 Cypress.Commands.add("parseLikeCounterIntegerHome", (place) => {
   cy.getByTestId("home-favorite-button")
     .eq(place)
     .invoke("text")
-    .should("be.a", "string")
-    .then(parseInt)
-    .should("be.a", "number");
+    .then(parseInt);
 });
 
 Cypress.Commands.add("checkDeselectedColourStyling", (button) => {

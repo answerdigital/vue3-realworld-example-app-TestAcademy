@@ -6,6 +6,7 @@ describe("Logged in user should be able to add a comment", () => {
   beforeEach(() => {
     cy.reload();
     cy.backendLogin("ruaridh@ruaridh.com", "Password");
+
     cy.openFirstArticle();
   });
 
@@ -23,7 +24,7 @@ describe("Logged in user should be able to add a comment", () => {
     cy.getByTestId("posted-comment-text").should("be.visible");
   });
 
-  it("Posted comment details are correct", () => {
+  it("Posted comment details are correct - comment text", () => {
     cy.url().should("contain", Cypress.config().baseUrl + "/#/article");
 
     //Act
@@ -39,6 +40,10 @@ describe("Logged in user should be able to add a comment", () => {
           .invoke("text")
           .should("equal", commentText);
       });
+  });
+
+  it("Posted comment details are correct - author", () => {
+    cy.addComment("test comment");
 
     cy.getByTestId("author-profile").should("be.visible");
 
@@ -55,6 +60,10 @@ describe("Logged in user should be able to add a comment", () => {
           })
           .should("equal", authorName);
       });
+  });
+
+  it("Posted comment details are correct - date", () => {
+    cy.addComment("test comment");
 
     cy.getByTestId("comment-date-posted").should("be.visible");
 
@@ -116,7 +125,6 @@ describe("Logged in user should be able to add a comment", () => {
 
 describe("Logged in user should be able to delete their comment", () => {
   beforeEach(() => {
-    cy.reload();
     cy.backendLogin("ruaridh@ruaridh.com", "Password");
   });
 
@@ -125,7 +133,7 @@ describe("Logged in user should be able to delete their comment", () => {
 
     cy.getByTestId("posted-comment-text").should("be.visible");
 
-    cy.getByTestId("articleContent").should("exist");
+    cy.getByTestId("articleContent").should("exist"); // This step makes the test wait for the article to fully load
 
     //Act
     cy.getByTestId("delete-comment").should("be.visible");
