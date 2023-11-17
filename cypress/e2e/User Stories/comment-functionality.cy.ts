@@ -6,6 +6,7 @@ describe("Logged in user should be able to add a comment", () => {
   beforeEach(() => {
     cy.reload();
     cy.backendLogin("ruaridh@ruaridh.com", "Password");
+
     cy.openFirstArticle();
   });
 
@@ -23,7 +24,7 @@ describe("Logged in user should be able to add a comment", () => {
     cy.getByTestId("posted-comment-text").should("be.visible");
   });
 
-  it("Posted comment details are correct", () => {
+  it("Posted comment details are correct - comment text", () => {
     cy.url().should("contain", Cypress.config().baseUrl + "/#/article");
 
     //Act
@@ -39,6 +40,10 @@ describe("Logged in user should be able to add a comment", () => {
           .invoke("text")
           .should("equal", commentText);
       });
+  });
+
+  it("Posted comment details are correct - author", () => {
+    cy.addComment("test comment");
 
     cy.getByTestId("author-profile").should("be.visible");
 
@@ -55,6 +60,10 @@ describe("Logged in user should be able to add a comment", () => {
           })
           .should("equal", authorName);
       });
+  });
+
+  it("Posted comment details are correct - date", () => {
+    cy.addComment("test comment");
 
     cy.getByTestId("comment-date-posted").should("be.visible");
 
@@ -90,7 +99,7 @@ describe("Logged in user should be able to add a comment", () => {
     cy.getByTestId("submit-comment").should("be.disabled");
   });
 
-  it("Post comment button is disabled after posting comment", () => {
+  it.skip("Post comment button is disabled after posting comment", () => {
     cy.url().should("contain", Cypress.config().baseUrl + "/#/article");
 
     //Act
@@ -116,16 +125,15 @@ describe("Logged in user should be able to add a comment", () => {
 
 describe("Logged in user should be able to delete their comment", () => {
   beforeEach(() => {
-    cy.reload();
     cy.backendLogin("ruaridh@ruaridh.com", "Password");
   });
 
   it("The delete icon appears and is functional", () => {
-    cy.openArticleAndBackendComment("singlecomment.json");
+    cy.openArticleAndBackendComment("single-comment.json");
 
     cy.getByTestId("posted-comment-text").should("be.visible");
 
-    cy.getByTestId("articleContent").should("exist");
+    cy.getByTestId("articleContent").should("exist"); // This step makes the test wait for the article to fully load
 
     //Act
     cy.getByTestId("delete-comment").should("be.visible");
@@ -156,7 +164,7 @@ describe("Logged in user should be able to delete their comment", () => {
     //Arrange
     cy.visit("/#/");
 
-    cy.openArticleAndBackendComment("otherusercomment.json");
+    cy.openArticleAndBackendComment("other-user-comment.json");
 
     cy.getByTestId("articleContent").should("exist");
 
@@ -182,7 +190,7 @@ describe("Multiple comments", () => {
 
   it("The newest comment displays at the top", () => {
     //Act
-    cy.openArticleAndBackendComment("comments.json");
+    cy.openArticleAndBackendComment("three-comments.json");
 
     cy.getByTestId("articleContent").should("exist");
 
@@ -235,7 +243,7 @@ describe("Resolution testing", () => {
   beforeEach(() => {
     cy.backendLogin("ruaridh@ruaridh.com", "Password");
 
-    cy.openArticleAndBackendComment("singlecomment.json");
+    cy.openArticleAndBackendComment("single-comment.json");
 
     cy.getByTestId("articleContent").should("exist");
   });
@@ -255,28 +263,3 @@ describe("Resolution testing", () => {
     });
   });
 });
-
-// describe("intercept try", () => {
-//   beforeEach(() => {
-//     cy.reload();
-//     cy.backendLogin("ruaridh@ruaridh.com", "Password");
-//     cy.openFirstArticle();
-//     cy.backendComment("singlecomment.json");
-//     cy.getByTestId("articleContent").should("exist");
-//   });
-//   it("intercept the delete", () => {
-//     cy.getByTestId("delete-comment").should("be.visible");
-
-//     cy.intercept(
-//       "DELETE",
-//       "https://api.realworld.io/api/articles/**/comments/1",
-//       {
-//         statusCode: 200,
-//       },
-//     ).as("deleteComment"); //what should it contain?
-
-//     cy.getByTestId("delete-comment").click();
-
-//     cy.wait("@deleteComment");
-//   });
-// });

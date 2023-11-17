@@ -22,7 +22,7 @@
         :aria-label="article.favorited ? 'Unfavorite article' : 'Favorite article'"
         class="btn btn-sm pull-xs-right"
         :class="[article.favorited ? 'btn-primary':'btn-outline-primary']"
-        data-test="fav-btn-1"
+        data-test="home-favorite-button"
         :disabled="favoriteProcessGoing"
         @click="() =>favoriteArticle()"
       >

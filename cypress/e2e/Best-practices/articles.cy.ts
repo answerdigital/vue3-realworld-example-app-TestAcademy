@@ -11,7 +11,7 @@ const tags = [
   "#/tag/et",
   "#/tag/quia",
   "#/tag/deserunt",
-]; //In or out of describe?
+];
 
 describe("article feed", () => {
   beforeEach(() => {
@@ -60,9 +60,9 @@ describe("article actions", () => {
     //Arrange
 
     //Act
-    cy.getByTestId("fav-btn-1").eq(0).click();
+    cy.getByTestId("home-favorite-button").eq(0).click();
     
-    cy.getByTestId("fav-btn-1").eq(0).click() //like/unlike
+    cy.getByTestId("home-favorite-button").eq(0).click() //like/unlike
 
     cy.getByTestId("open-article").eq(0).click();
 
@@ -74,24 +74,18 @@ describe("article actions", () => {
     ); //would be different if the article at the top of the list changes
 
     //Act
-    cy.getByTestId("favorite-button").eq(0).contains("Favorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Favorite");
 
-    cy.getByTestId("favorite-button").eq(0).click();
+    cy.getByTestId("article-favorite-button").eq(0).click();
 
-    cy.getByTestId("favorite-button").eq(0).contains("Unfavorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Unfavorite");
     
-    cy.getByTestId("favorite-button").eq(0).click();
+    cy.getByTestId("article-favorite-button").eq(0).click();
 
-    cy.getByTestId("favorite-button").eq(0).contains("Favorite");
+    cy.getByTestId("article-favorite-button").eq(0).contains("Favorite");
 
-    cy.getByTestId("favorite-button").eq(1);
+    cy.getByTestId("article-favorite-button").eq(1);
 
-    // cy.getByTestId("favorite-button").eq(1).contains("Favorite").click(); //bottom like button
-
-    // cy.getByTestId("favorite-button").eq(1).contains("Unfavorite").click();
-
-    //Assert
-    //cy.url().should('equal',  Cypress.config().baseUrl +'/#/tag/welcome');
   });
 
   it("Allows the user to follow & unfollow author", () => {
@@ -118,6 +112,3 @@ describe("article actions", () => {
   });
 });
 
-//Likes persist - This is broken
-//Add a comment
-//Delete a comment
